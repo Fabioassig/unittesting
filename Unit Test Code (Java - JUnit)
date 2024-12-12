@@ -1,0 +1,28 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class BorrowMediaTest {
+
+    private MediaLibrary library;
+
+    @BeforeEach
+    void setUp() {
+        library = new MediaLibrary();
+        library.addMedia(new Media("Book1", "Available"));
+    }
+
+    @Test
+    void testBorrowMediaSuccessfully() {
+        boolean result = library.borrowMedia("Book1");
+        assertTrue(result, "Media should be borrowed successfully.");
+        assertEquals("Borrowed", library.getMediaStatus("Book1"), "Media status should be updated to Borrowed.");
+    }
+
+    @Test
+    void testBorrowMediaAlreadyBorrowed() {
+        library.borrowMedia("Book1");
+        boolean result = library.borrowMedia("Book1");
+        assertFalse(result, "Media should not be borrowed again if already borrowed.");
+    }
+}

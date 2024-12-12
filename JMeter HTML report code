@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JMeter Performance Test Report</title>
+    <script src="chart.js"></script>
+</head>
+<body>
+    <h1>JMeter Performance Test Report</h1>
+    <div>
+        <h2>Summary</h2>
+        <p>Number of Threads: 500</p>
+        <p>Average Response Time: 2.8 seconds</p>
+        <p>Median Response Time: 2.5 seconds</p>
+        <p>Throughput: 1500 requests per second</p>
+    </div>
+    <div>
+        <h2>Graphs</h2>
+        <h3>Response Time Distribution</h3>
+        <img src="response_time_distribution.png" alt="Response Time Distribution Graph">
+
+        <h3>Throughput</h3>
+        <img src="throughput_graph.png" alt="Throughput Graph">
+
+        <h3>Error Percentage</h3>
+        <p>Error Percentage: 0.1%</p>
+    </div>
+    <div>
+        <h2>Conclusion</h2>
+        <p>The system meets the performance requirements for up to 500 concurrent users with acceptable response times and minimal errors.</p>
+    </div>
+</body>
+</html>

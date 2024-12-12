@@ -1,0 +1,23 @@
+const { expect } = require('chai');
+const MediaLibrary = require('../MediaLibrary');
+
+describe('Borrow Media Functionality', () => {
+  let library;
+
+  beforeEach(() => {
+    library = new MediaLibrary();
+    library.addMedia({ title: 'Book1', status: 'Available' });
+  });
+
+  it('should borrow media successfully', () => {
+    const result = library.borrowMedia('Book1');
+    expect(result).to.be.true;
+    expect(library.getMediaStatus('Book1')).to.equal('Borrowed');
+  });
+
+  it('should not borrow media if already borrowed', () => {
+    library.borrowMedia('Book1');
+    const result = library.borrowMedia('Book1');
+    expect(result).to.be.false;
+  });
+});
